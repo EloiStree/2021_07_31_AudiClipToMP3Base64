@@ -1,0 +1,23 @@
+
+{                                                                                
+  "name": "be.eloistree.microphonetomp3base64",                              
+  "displayName": "Microphone To MP3 Base 64",                        
+  "version": "0.0.1",                         
+  "unity": "2018.1",                             
+  "unityRelease": "",                             
+  "description": "This package convert your microphone to a base 64 mp3 and read it. All credit to BeatUpir for the audioclip converter.",                         
+  "keywords": ["Script","Tool"],                       
+  "dependencies":{},     
+  "relatedPackages":{},     
+  "samples" : [],     
+  "author" : {
+"name":"",
+"mail":"",
+"url":""},     
+  "repository":{
+"type":"Git",
+"url":"https://github.com/EloiStree/Unity3D-save-audioClip-to-MP3.git",
+"footprint":"",
+"revision":"0e86b5d93e6535f4f26397f54d784e7d24567dea"},     
+  "category": "Script"                   
+} 
