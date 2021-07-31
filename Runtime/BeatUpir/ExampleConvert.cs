@@ -98,6 +98,28 @@ public class AudioClipToBase64Utility {
 		throw new NotImplementedException("Need to study the Tool to go in base64 to audioclip way");
 	}
 
+    public static IEnumerator LoadAudioBase64FromWebpageOrFile(string uri, AudioClipCallBack callback)
+	{
+		string textThatSouldBeBase64 = "";
+		string path = uri;
+		if (File.Exists(path))
+			path = "file://" + path;
+		using (UnityWebRequest web = UnityWebRequest.Get(path))
+		{
+			yield return web.SendWebRequest();
+			if (web.result == UnityWebRequest.Result.Success)
+			{
+				textThatSouldBeBase64 = web.downloadHandler.text ;
+			}
+			else
+			{
+
+				callback.SetAsErrorHappen("Error found at the uri:"+uri);
+				yield break;
+			}
+		}
+		yield return ImportAudioFromBase64WithWebRequest(textThatSouldBeBase64, callback);
+	}
 
 }
 

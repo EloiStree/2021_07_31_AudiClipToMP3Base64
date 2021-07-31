@@ -158,17 +158,23 @@ namespace NAudio.Lame
 			// select encoder function that matches data format
 			if (format.Encoding == WaveFormatEncoding.Pcm)
 			{
+				//if (format.Channels == 1)
+				//	_encode = encode_pcm_16_mono;
+				//else
+				//	_encode = encode_pcm_16_stereo;
+
 				if (format.Channels == 1)
 					_encode = encode_pcm_16_mono;
 				else
-					_encode = encode_pcm_16_stereo;
+					_encode = encode_pcm_16_mono;
+				//EDITED https://github.com/BeatUpir/Unity3D-save-audioClip-to-MP3/issues/4#issuecomment-584430252
 			}
 			else
 			{
 				if (format.Channels == 1)
 					_encode = encode_float_mono;
 				else
-					_encode = encode_float_stereo;
+					_encode = encode_float_mono;
 			}
 
 			// Set base properties
@@ -317,12 +323,14 @@ namespace NAudio.Lame
 
 		private int encode_pcm_16_stereo()
 		{
-			return _lame.Write(inBuffer.shorts, inPosition / 2, outBuffer, outBuffer.Length, false);
+			return _lame.Write(inBuffer.shorts, inPosition / 2, outBuffer, outBuffer.Length, true);
+//			return _lame.Write(inBuffer.shorts, inPosition / 2, outBuffer, outBuffer.Length, false);
 		}
 
 		private int encode_float_mono()
 		{
-			return _lame.Write(inBuffer.floats, inPosition / 4, outBuffer, outBuffer.Length, true);
+			return _lame.Write(inBuffer.shorts, inPosition / 2, outBuffer, outBuffer.Length, true);
+			//return _lame.Write(inBuffer.floats, inPosition / 4, outBuffer, outBuffer.Length, true);
 		}
 
 		private int encode_float_stereo()
