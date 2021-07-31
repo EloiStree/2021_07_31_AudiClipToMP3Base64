@@ -5,7 +5,7 @@ My code is just:
 - The addition of the ability to record the microphone and import export the sound as base64 string.
 
 Hope this code help the community,
-Big thanks to 'BeatUpir' !
+Big thanks to ['BeatUpir'](https://github.com/BeatUpir/Unity3D-save-audioClip-to-MP3) !
 
 Kind regards,
 Eloi
