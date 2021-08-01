@@ -9,11 +9,14 @@ public class MicrophoneRecordingManager : MonoBehaviour
     public MicrophoneCapture m_basicMicroRecorder;
     public AudioSource m_replaySource;
     public AudioClip m_recordedAsClip;
+    public UnityEvent m_audioConvertedChange;
+    public int m_mpegbitRate = 128;
+
+
+    [Header("Debug")]
     private byte[] m_recordedAsBytes;
     public string m_recordedAsBase64;
     public string m_recordedAsBase64WithHeader;
-    public UnityEvent m_audioConvertedChange;
-    public int m_mpegbitRate = 128;
 
 
     public void CopyToClipboard() {

@@ -10,6 +10,7 @@ public class UI_DemoReplayBase64Mpeg : MonoBehaviour
     public InputField m_base64Text;
     public InputField m_uriBase64;
     public AudioSource m_replayer;
+    public Text m_debugText;
     [Header("Debug")]
     public AudioClip m_loaded;
     public string m_errorLoading;
@@ -25,6 +26,8 @@ public class UI_DemoReplayBase64Mpeg : MonoBehaviour
     {
         m_errorLoading = source.GetError();
         m_loaded = source.GetClip();
+        if (m_debugText != null)
+            m_debugText.text = m_errorLoading;
     }
 
     public void LoadAudioClipFromURI()
@@ -38,6 +41,7 @@ public class UI_DemoReplayBase64Mpeg : MonoBehaviour
     {
         string text = m_base64Text.text;
         LoadFromText(text);
+
 
     }
 
